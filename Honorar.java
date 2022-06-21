@@ -21,7 +21,7 @@ public class Honorar {
             if (s == null) {
                     throw new IllegalArgumentException("Abbruch: Kein Text");
             }  if (!minLength(s, minLength)) {
-                    throw new IllegalArgumentException("String Laenge: " + s.length() + " Abbruch der Honorarberechnung: Text hat nicht die Mindest-Laenge von " + minLength + " Zeichen.");
+                    throw new IllegalArgumentException("String Laenge: " + s.length() + " Abbruch der Honorarberechnung: Text zu kurz. Mindest-Laenge:" + minLength + " Zeichen.");
             }
                 // Honorar berechnen
                 return s.length()/TEILER;

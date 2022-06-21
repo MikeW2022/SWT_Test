@@ -29,22 +29,17 @@ public class HonorarTest {
     }
 
 
-    // Test ob Textlange != null
+    // Test auf Assertion == null
     @Test
     public void testTextIsNull() {
-        // s = null;
-        if(s == null)
-            throw new IllegalArgumentException("Abbruch: Kein Text.");
+        // throw an exception
+        assertEquals(h.berechneHonorar(null, h.minLength), 0);
     }
 
     // Test auf MindestLaenge
     @Test
     public void testTextIsTooShort() {
-        s = makeTestString(s);
-        if(!h.minLength(s, len))
-            throw new IllegalArgumentException("Abbruch: Text ist zu kurz.");
-        else
-            h.berechneHonorar(s, h.minLength);
+        assertEquals(h.berechneHonorar(s, h.minLength), s.length());
     }
 
 
@@ -52,32 +47,7 @@ public class HonorarTest {
     @Test
     public void testgetHonorar() {
         s = makeTestString(s);
-        h.berechneHonorar(s, h.minLength);
+        assertEquals(h.berechneHonorar(s, h.minLength), 1);
     }
-
-
-
-    // korrektheit bei Bildern
-
-    /*
-    @Test
-    public void testTextHasRange() {
-        int len = s.length();
-        try {
-            if (len > 10000 and < 20000);
-                System.out.println("Honorar.Stufe 1 ab 10000 W�rter");
-                break;
-            }
-            catch(Exception e) {
-                System.out.println("Honorar.Stufe 1 ab 10000 W�rter");
-            }
-        }
-
-    //honrorarBerechnen(s)
-
-    // Methoden+
-   // countPictures
-   //  countText
-     */
 
 }
