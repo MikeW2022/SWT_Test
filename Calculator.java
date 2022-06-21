@@ -1,4 +1,4 @@
-package test;
+package swt_test;
 
 public class Calculator {
     

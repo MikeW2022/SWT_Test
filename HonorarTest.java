@@ -1,66 +1,83 @@
-package test;
+package swt_test;
 
-import static org.junit.Assert.*;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.fail;
+import org.junit.jupiter.api.*;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Rule;
+import org.junit.jupiter.api.DisplayName;
 
-import java.io.IOException;
+import static org.junit.jupiter.api.Assertions.*;
 
-import org.junit.Test;
+@DisplayName("Honorar Test")
 
-public class HonorarTest {
+public class HonorarTest {   
 
-    String s = "";
-    
+    // sysout + CTRL + SPACE
+
+    String s = "Peace on earth and a good sense for everyone! So help me God!\n";  
     Honorar h = new Honorar();
-    
-    
-    // muss
+    public static final int len = 100;
+
+    public String makeTestString(String s) {
+        StringBuilder sB = new StringBuilder(s);
+        while(sB.toString().length() < h.minLength) {
+            sB.append(s);
+        }   
+        return sB.toString();
+    }
+
+
+    // Test ob Textlange != null
     @Test
     public void testTextIsNull() {
-        try {
-                if (s == null);
-        }
-        catch(IOException e) {
-            System.out.println("Kein Text vorhanden");
-        }
-        
+        // s = null;
+        if(s == null)
+            throw new IllegalArgumentException("Abbruch: Kein Text.");
     }
 
-    
+    // Test auf MindestLaenge
+    @Test
+    public void testTextIsTooShort() {
+        s = makeTestString(s);
+        if(!h.minLength(s, len))
+            throw new IllegalArgumentException("Abbruch: Text ist zu kurz.");
+        else
+            h.berechneHonorar(s, h.minLength);
+    }
+
+
+    // Test Berechne Honorar
     @Test
     public void testgetHonorar() {
-        
+        s = makeTestString(s);
+        h.berechneHonorar(s, h.minLength);
     }
-    
-    // muss nicht
-    @Test
-    public void testTextHasMin() {
-        try {
-            if (s.length() < 10000);
-        }
-        catch(Exception e) {
-            System.out.println("Honorar wird erst ab Länge > 10000 berechnet");
-        }
-    }
-    
+
+
+
     // korrektheit bei Bildern
-    
+
+    /*
     @Test
     public void testTextHasRange() {
         int len = s.length();
         try {
             if (len > 10000 and < 20000);
-                System.out.println("Honorar.Stufe 1 ab 10000 Wörter");
+                System.out.println("Honorar.Stufe 1 ab 10000 Wï¿½rter");
                 break;
             }
             catch(Exception e) {
-                System.out.println("Honorar.Stufe 1 ab 10000 Wörter");
+                System.out.println("Honorar.Stufe 1 ab 10000 Wï¿½rter");
             }
         }
-    
+
     //honrorarBerechnen(s)
-    
+
     // Methoden+
    // countPictures
    //  countText
-    
+     */
+
 }
