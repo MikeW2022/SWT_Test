@@ -28,6 +28,20 @@ class BilderTest {
         }
     }
     
+    // Test auf Nicht null Objekt
+    @Test
+    public void testNotNullObject() {
+        assert new Bilder() != null;
+    }
+    
+    // Test auf Bezeichner
+    @Test
+    public void testDesc() {
+        b0.setDesc("bild1");
+        assert b0.getDesc() != null && b0.getDesc() != "";
+    }
+    
+    
     // Test auf Bildgröße
     @Test
     public void testSize() {
@@ -38,7 +52,7 @@ class BilderTest {
     // Test auf Anzahl
     @Test
     public void testCount() {
-        assertEquals(new Bilder(s).getC(), 1);
+        assertEquals(new Bilder(s).getC(), 3);
     }  
 
 }
