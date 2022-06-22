@@ -1,8 +1,8 @@
-package de.edlich.mdemo;
+package mocktest;
 
 public class Gehaltsrechner {
-	public int calcNetto(int aBrutto) {
+	public double calcNetto(double grossSalary) {
 		System.out.println("Werde weggezaubert!");
-		return aBrutto/2;
+		return grossSalary/2;
 	}
 }
